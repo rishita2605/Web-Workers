@@ -27,12 +27,12 @@ function animateBackground() {
 
 function workerFunction() {
   // Don't spin up a new worker instance if the process has already been started.
-  if (statusElement.textContent !== PROCESS_STATUS.PROCESSING) {
+  if (statusElement.textContent !== PROCESS_STATUS.PROCESSING && window.Worker) {
     const worker = new Worker('./worker.js', {
       type: 'module'
     })
 
-    worker.postMessage(statusElement.textContent)
+    worker.postMessage(10000000000000)
 
     statusElement.textContent = PROCESS_STATUS.PROCESSING
 

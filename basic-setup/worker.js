@@ -5,6 +5,6 @@ import {
 
 
 onmessage = (e) => {
-  heavyComputation()
+  heavyComputation(e.data)
   postMessage(PROCESS_STATUS.COMPLETED)
 }
