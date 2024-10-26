@@ -26,21 +26,30 @@ function animateBackground() {
 }
 
 function workerFunction() {
-  const worker = new Worker('./worker.js', { type: 'module' })
+  // Don't spin up a new worker instance if the process has already been started.
+  if (statusElement.textContent !== PROCESS_STATUS.PROCESSING) {
+    const worker = new Worker('./worker.js', {
+      type: 'module'
+    })
 
-  statusElement.textContent = PROCESS_STATUS.PROCESSING
+    worker.postMessage(statusElement.textContent)
 
-  worker.postMessage(PROCESS_STATUS.PROCESSING)
+    statusElement.textContent = PROCESS_STATUS.PROCESSING
 
-  worker.onmessage = function (event) {
-    statusElement.textContent = event.data
+    worker.onmessage = function (event) {
+      statusElement.textContent = event.data
+    }
   }
 }
 
 // Event Listeners.
 heavyTaskBtn.addEventListener('click', () => {
-  heavyComputation()
-  statusElement.textContent = PROCESS_STATUS.COMPLETED
+  statusElement.textContent = PROCESS_STATUS.PROCESSING
+
+  setTimeout(() => {
+    heavyComputation();
+    statusElement.textContent = PROCESS_STATUS.COMPLETED;
+  }, 10);
 })
 
 animateBtn.addEventListener('click', animateBackground)

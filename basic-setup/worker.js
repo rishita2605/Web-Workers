@@ -5,7 +5,6 @@ import {
 
 
 onmessage = (e) => {
-  console.log('inside worker', e)
   heavyComputation()
   postMessage(PROCESS_STATUS.COMPLETED)
 }
