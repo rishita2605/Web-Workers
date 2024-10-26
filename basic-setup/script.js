@@ -1,15 +1,22 @@
-const heavyTaskBtn = document.getElementById('heavy-task-btn')
-const body = document.querySelector('body')
-const animateBtn = document.getElementById('animate')
+import {
+  heavyComputation,
+  PROCESS_STATUS
+} from '../util.js'
+
+// Constants.
 const ANIMATE_CLASS = 'animate-background'
 
-function heavyComputation() {
-  for(let i = 0; i < 10000000000; i++);
-  console.log('done')
-}
+// Elements.
+const heavyTaskBtn = document.getElementById('heavy-task-btn')
+const heavyTaskWorkerBtn = document.getElementById('worker-heavy-task-btn')
+const body = document.querySelector('body')
+const animateBtn = document.getElementById('animate')
+const statusElement = document.getElementById('task-status')
 
-function animateBackground(){
-  if(body.classList.contains(ANIMATE_CLASS)){
+
+// Handlers.
+function animateBackground() {
+  if (body.classList.contains(ANIMATE_CLASS)) {
     body.classList.remove(ANIMATE_CLASS)
     animateBtn.textContent = 'animate background'
   } else {
@@ -18,5 +25,23 @@ function animateBackground(){
   }
 }
 
-heavyTaskBtn.addEventListener('click', heavyComputation)
+function workerFunction() {
+  const worker = new Worker('./worker.js', { type: 'module' })
+
+  statusElement.textContent = PROCESS_STATUS.PROCESSING
+
+  worker.postMessage(PROCESS_STATUS.PROCESSING)
+
+  worker.onmessage = function (event) {
+    statusElement.textContent = event.data
+  }
+}
+
+// Event Listeners.
+heavyTaskBtn.addEventListener('click', () => {
+  heavyComputation()
+  statusElement.textContent = PROCESS_STATUS.COMPLETED
+})
+
 animateBtn.addEventListener('click', animateBackground)
+heavyTaskWorkerBtn.addEventListener('click', workerFunction)
