@@ -4,6 +4,6 @@ export const PROCESS_STATUS = {
   COMPLETED: 'Completed'
 }
 
-export function heavyComputation(n = 10000000000) {
+export function heavyComputation(n) {
   for(let i = 0; i < n; i++);
 }
