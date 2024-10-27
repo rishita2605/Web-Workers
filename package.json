@@ -24,5 +24,8 @@
   "homepage": "https://github.com/rishita2605/web-workers#readme",
   "devDependencies": {
     "live-server": "^1.2.2"
+  },
+  "dependencies": {
+    "comlink": "^4.4.1"
   }
 }

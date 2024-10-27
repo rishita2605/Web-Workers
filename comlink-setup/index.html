@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../styles.css" rel="stylesheet" type="text/css" />
+  <title>Web Workers Basic Setup</title>
+</head>
+
+<body>
+  <div>
+    <button id="animate">animate background</button>
+    <button id="heavy-task-btn">computationally heavy task</button>
+    <button id="worker-heavy-task-btn">computationally heavy task using worker</button>
+  </div>
+  <div>Process: <span id="task-status">To Do</span></div>
+  <script src="../shared-script.js" type="module"></script>
+  <script src="./script.js" type="module"></script>
+</body>
+
+</html>
