@@ -15,3 +15,9 @@ https://dev.to/risotttttto/all-you-need-to-know-about-web-workers-1k5g
 - ```npm start```
 - Go to the respective directory you want to explore
 
+
+## Output highlighting how web workers prevent blocking of UI
+
+
+https://github.com/user-attachments/assets/b09b73ec-925d-42ae-ba0e-02ca0fd0693a
+
