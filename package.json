@@ -1,0 +1,28 @@
+{
+  "name": "web-workers",
+  "version": "1.0.0",
+  "description": "Basic snippets to get started with web workers ",
+  "main": "shared-script.js",
+  "scripts": {
+    "start": "npx live-server --port=2605 --host=127.0.0.1",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rishita2605/web-workers.git"
+  },
+  "keywords": [
+    "web-workers",
+    "javascript",
+    "tutorial"
+  ],
+  "author": "Rishita Raha",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rishita2605/web-workers/issues"
+  },
+  "homepage": "https://github.com/rishita2605/web-workers#readme",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
