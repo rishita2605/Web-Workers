@@ -3,7 +3,7 @@
 ## What is this repository about? 
 This repository is a collection of code snippets to get started with using web workers. 
 
-### Read more about it 
+### Read more about it on dev.to
 https://dev.to/risotttttto/all-you-need-to-know-about-web-workers-1k5g
 
 ## How to get started
